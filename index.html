@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pengumuman Kelulusan MA MA'ARIF NU 5 SEKAMPUNG</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -61,21 +62,21 @@
 </head>
 <body>
   <div class="container" id="sambutan">
- <img src="assets/logo.png" alt="Logo" width="150" class="logo">
+    <img src="assets/logo.png" alt="Logo" width="150" class="logo">
     <h2>Pengumuman Kelulusan Peserta didik Tahun 2025</h2>
-     <img src="assets/assalamualaikum.png" alt="Logo" width="150" class="logo">
+    <img src="assets/assalamualaikum.png" alt="Logo" width="150" class="logo">
     <p>
       Selamat kepada seluruh Peserta didik MA MA'ARIF NU 5 SEKAMPUNG yang telah menyelesaikan jenjang pendidikan selama 3 tahun. Semoga ilmu yang kalian dapatkan menjadi bekal dalam meraih cita-cita dan menebar manfaat di tengah masyarakat.
     </p>
     <p><b><i>Wallahul Muwaffiq ila Aqwamit Tharieq</i></b></p>
-     <img src="assets/wassalamualaikum.png" alt="Logo" width="150" class="logo">
+    <img src="assets/wassalamualaikum.png" alt="Logo" width="150" class="logo">
     <p><strong>Kepala Madrasah</strong></p>
     <button onclick="showLogin()">LOGIN untuk Melihat Kelulusan</button>
   </div>
 
   <div class="container hidden" id="cekKelulusan">
-<img src="assets/logo.png" alt="Logo" width="150" class="logo">    
-<h2>Cek Status Kelulusan</h2>
+    <img src="assets/logo.png" alt="Logo" width="150" class="logo">    
+    <h2>Cek Status Kelulusan</h2>
     <input type="text" id="nisn" placeholder="Masukkan NISN Anda">
     <br>
     <button onclick="cekKelulusan()">CEK KELULUSAN</button>
@@ -115,6 +116,14 @@
 
           if (siswa.Status.toUpperCase() === "LULUS") {
             hasil.innerHTML += `<br><br><em>"Lulus bukanlah akhir,<strong> tapi awal </strong>perjalanan hidup yang lebih nyata. <strong> Semoga kalian sukses meniti karier dan selalu diberi kekuatan untuk menghadapi tantangan ke depan!"</strong> </em>`;
+            
+            // 2. Panggil fungsi confetti jika status LULUS
+            confetti({
+              particleCount: 150,
+              spread: 180,
+              origin: { y: 0.6 }
+            });
+
           }
         } else {
           hasil.innerHTML = "NISN tidak ditemukan. Silakan periksa kembali.";
